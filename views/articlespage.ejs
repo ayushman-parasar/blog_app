@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Articles</title>
+</head>
+<body>
+    <h1>Welcome to myBlog</h1>
+    <div>
+        <a href="articles/create"><span>Post an article : </span></a>
+    </div>
+    <hr>
+    <div class="list_container">
+        <ul>
+            <% data.forEach(article =>{%>
+                <li>
+                    <h4><%= article.title %></h4>
+                    <p><%= article.description %></p>
+                    Likes<%= article.likes %>
+                    <a href="articles/<%= article.id%>/view">View</a>
+                    <a href="articles/<%= article.id%>/delete">Delete</a>
+                </li>
+            <%})%>
+        </ul>
+    </div>
+</body>
+</html>

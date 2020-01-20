@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1><%= data.title %></h1>
+        <p>
+            <%= data.description%>
+        </p>
+        <a href="/articles/<%= data.id %>/likes">Like<%= data.likes %></a>
+        <a href="/articles/<%= data.id%>/edit">Edit</a>
+        <a href="/articles">Show Articles</a>
+    </div>
+    <div class="div">
+        <% data.comments.forEach(comment=>{ %>
+        <p><%= comment.content%></p>
+        <a href="/articles/<%= data.id %>/view/editComment">Edit comment</a>
+        <a href="/articles/<%= data.id %>/<%= comment._id%>">Delete Comment</a>
+        <% }) %>
+    </div>
+    <div class="comment-section">
+        <!-- comments -->
+        <h3>Post a comment</h3>
+        <form action="/articles/<%= data.id%>/view" method="POST">
+            <input type="text" name="content" placeholder="write comment">
+            <input type="submit" value="Submit Comment">
+        </form>
+    </div>
+    
+
+</body>
+</html>
