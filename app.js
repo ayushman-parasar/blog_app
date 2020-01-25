@@ -7,6 +7,7 @@ var mongoose = require('mongoose');
 var session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 var flash = require('connect-flash')
+var middleware = require('./modules/middleware')
 
 
 var indexRouter = require('./routes/index');
@@ -15,7 +16,7 @@ var articlesRouter = require('./routes/articles');
 var commentRouter = require('./routes/comments')
 
 var app = express();
-mongoose.connect('mongodb://localhost/newblog',{
+mongoose.connect('mongodb+srv://ayush:password@123@cluster1-xcgij.mongodb.net/test?retryWrites=true&w=majority',{
   useNewUrlParser: true,
   useUnifiedTopology: true
 },(err)=>{
@@ -40,6 +41,7 @@ app.use(session({
   store: new MongoStore({mongooseConnection: mongoose.connection})
 }))
 app.use(flash())
+app.use(middleware.loggedUserInfo)
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

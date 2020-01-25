@@ -22,6 +22,14 @@ var userSchema = new Schema({
         required: true,
         minlength:3
     },
+    articlesId:[{
+        type:Schema.Types.ObjectId,
+        ref: "Article"
+    }],
+    commentsId:[{
+        type:Schema.Types.ObjectId,
+        ref: "Comment"
+    }]
 
 },{timestamps : true})
 

@@ -6,12 +6,19 @@ var commentSchema = new Schema({
         type: String,
 
     },
-    articleId : [{
+    articleId : {
         type : Schema.Types.ObjectId,
         ref : 'Article',
 
-    }]  
-},{
+    },
+    authorId:{
+        type:Schema.Types.ObjectId,
+        ref:"User",
+        required: true,
+    }  
+},
+
+{
     timestamps : true,
 })
 
