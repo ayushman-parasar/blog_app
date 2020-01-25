@@ -16,7 +16,7 @@ var articlesRouter = require('./routes/articles');
 var commentRouter = require('./routes/comments')
 
 var app = express();
-mongoose.connect('mongodb+srv://ayush:password@123@cluster1-xcgij.mongodb.net/test?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://puneet:hello@cluster0-nygtm.gcp.mongodb.net/test?retryWrites=true&w=majority',{
   useNewUrlParser: true,
   useUnifiedTopology: true
 },(err)=>{
